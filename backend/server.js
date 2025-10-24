@@ -3,7 +3,9 @@ import dotenv from 'dotenv';
 import { Anthropic } from '@anthropic-ai/sdk';
 import cors from 'cors';
 
-dotenv.config();
+dotenv.config({ path: './.env.development' });
+
+console.log("CLAUDE_API_KEY:", process.env.ANTHROPIC_API_KEY ? "SET" : "NOT SET");
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
@@ -42,5 +44,5 @@ Answer: ${answer}`
     res.status(500).json({ error: err.message || "Failed to analyze answer" });
   }
 });
-
-app.listen(5000, () => console.log('Backend running on port 5000'));
+const PORT = process.env.PORT || 5000;  
+app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));

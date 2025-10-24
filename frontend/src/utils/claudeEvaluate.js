@@ -107,9 +107,11 @@ Format your response as JSON with "score" (number) and "feedback" (string) field
 export default evaluateAnswerWithClaude;*/
 
 // claudeEvaluate.js
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 const evaluateAnswerWithClaude = async (question, answer) => {
   try {
-    const response = await fetch("http://localhost:5000/api/analyze", {
+    const response =  await fetch(`${backendUrl}/api/analyze`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ answer }),
