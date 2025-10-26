@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import '../App.css' ;
+import '../index.css' ;
 function Home() {
     const navigate = useNavigate() ;
     const programs = ["Math", "Science", "Data Science", "Engineering", "AI"];

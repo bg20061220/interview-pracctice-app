@@ -1,0 +1,79 @@
+ .home-container { 
+   min-height: 100vh; 
+ } 
+
+.section {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+} 
+
+ .section1 {
+  background-color: #f9fafb;
+ } 
+
+.section2 {
+  background-color: #f0f0f0; 
+   overflow-x: auto;
+  white-space: nowrap;
+} 
+
+.program-card {
+ background-color: #ce4343;
+  padding: 2px 4px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out;
+  font-size: 18px;
+  font-weight: 500;
+  color : "black";
+  width : 100px ; 
+  height : 100px ; 
+  display : flex ; 
+  justify-content : center ; 
+  align-items : center ; 
+  flex-shrink : 0 ; 
+  margin : 10px ; 
+}
+
+.program-card:hover {
+  
+  transform: scale(1.05);
+  background-color: #e0e0e0;
+} 
+
+.section3 {
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.cards-container{
+  height : 150px ; 
+  width : 100% ; 
+  overflow : hidden; 
+  position : relative ; 
+  display : flex ; 
+  justify-content: center ;
+  gap : 20px ; 
+  flex-wrap : wrap ; 
+  margin-top : 20px ; 
+}
+
+.programs-section {
+  text-align: center;
+  margin: 50px 0; 
+}
+.slider-track {
+  display : flex ; 
+  width : calc(200px * 10) ;
+   animation : scroll 20s linear infinte;   
+ }  
+
+textarea{
+  width : 90% ; 
+  height: 100px ; 
+}

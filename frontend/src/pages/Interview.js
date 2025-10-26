@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import questions from "../utils/questionData";
 import WrittenQuestion from "../components/WrittenQuestion";
 import VideoQuestion from "../components/VideoQuestion";
-import '../App.css';
+import '../index.css';
 
 function Interview({answers, setAnswers}) {
     const [currentAnswer, setCurrentAnswer] = useState("");
