@@ -5,13 +5,17 @@ import cors from 'cors';
 
 dotenv.config({ path: './.env.development' });
 
-console.log("CLAUDE_API_KEY:", process.env.ANTHROPIC_API_KEY ? "SET" : "NOT SET");
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+
+console.log("CLAUDE_API_KEY:", process.env.ANTHROPIC_API_KEY ? "SET" : "NOT SET");
+
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+
 
 app.post('/api/analyze', async (req, res) => {
   try {
@@ -45,4 +49,28 @@ Answer: ${answer}`
   }
 });
 const PORT = process.env.PORT || 5000;  
+
+// Test route to verify Anthropic API key is working
+app.get('/api/test-key', async (req, res) => {
+  try {
+    // Simple test request to Claude
+    const response = await client.messages.create({
+      model: 'claude-3-haiku-20240307',
+      messages: [{ role: 'user', content: 'Say hello in one word.' }],
+      max_tokens: 20,
+    });
+
+    res.json({
+      success: true,
+      message: response.content[0].text,
+    });
+  } catch (err) {
+    console.error("❌ API key test failed:", err.message);
+    res.status(500).json({
+      success: false,
+      error: err.message,
+    });
+  }
+});
+
 app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));

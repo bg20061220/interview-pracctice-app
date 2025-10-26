@@ -108,7 +108,7 @@ export default evaluateAnswerWithClaude;*/
 
 // claudeEvaluate.js
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
-
+console.log("Backend URL :" , process.env.REACT_APP_BACKEND_URL)
 const evaluateAnswerWithClaude = async (question, answer) => {
   try {
     const response =  await fetch(`${backendUrl}/api/analyze`, {
