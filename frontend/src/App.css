@@ -1,12 +1,8 @@
-/* 
-/*Css for home screen */ 
-/* Container for 3 vertical sections */
  .home-container { 
-   /* display: flex;  */
+   
   min-height: 100vh; 
  } 
 
-/* Each section takes equal width */
 .section {
   flex: 1;
   padding: 2rem;
@@ -17,19 +13,16 @@
   text-align: center;
 } 
 
-/* Section 1 */
  .section1 {
-  background-color: #f9fafb; /* light gray */
+  background-color: #f9fafb;
  } 
 
-/* Section 2 */
 .section2 {
-  background-color: #f0f0f0; /* slightly darker gray */
+  background-color: #f0f0f0; 
    overflow-x: auto;
   white-space: nowrap;
 } 
 
-/* Cards for programs */
 .program-card {
  background-color: #ce4343;
   padding: 2px 4px;
@@ -54,7 +47,6 @@
   background-color: #e0e0e0;
 } */
 
-/* Section 3 */
 .section3 {
   flex-direction: row;
   gap: 2rem;
@@ -75,16 +67,13 @@
 .programs-section {
   text-align: center;
   margin: 50px 0; 
-   /* overflow : hidden ;  */
 }
 .slider-track {
   display : flex ; 
-  width : calc(200px * 10) ;/* card width * number of cards */
+  width : calc(200px * 10) ;
    animation : scroll 20s linear infinte;   
  }  
 
- 
-/*  CSS for interview page  */
 textarea{
   width : 90% ; 
   height: 100px ; 
