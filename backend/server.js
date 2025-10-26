@@ -10,11 +10,23 @@ const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 console.log("CLAUDE_API_KEY:", process.env.ANTHROPIC_API_KEY ? "SET" : "NOT SET");
 
-
+const allowedOrigins = [ 
+  "https://interview-pracctice-appbhavyagoel.vercel.app",
+  "https://localhost:3000"
+]
 const app = express();
 app.use(express.json());
-app.use(cors());
-
+app.use(cors({
+  origin: function(origin, callback){
+    // allow requests with no origin like Postman
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1){
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  }
+}));
 
 
 app.post('/api/analyze', async (req, res) => {
