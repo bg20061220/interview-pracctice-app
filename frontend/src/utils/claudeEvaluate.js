@@ -4,7 +4,8 @@ const backendUrl = process.env.REACT_APP_BACKEND_URL;
 console.log("Backend URL :" , process.env.REACT_APP_BACKEND_URL)
 const evaluateAnswerWithClaude = async (question, answer) => {
   try {
-    const response =  await fetch(`${backendUrl}/api/analyze`, {
+    const url = `${backendUrl.replace(/\/$/, '')}/api/analyze`;
+    const response =  await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ answer }),
